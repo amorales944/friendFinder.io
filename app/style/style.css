@@ -1,0 +1,12 @@
+.jumbotron {
+    margin-top:20%;
+    background-color: #b3dcfa;
+    border-radius: 5px;
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 8px #888888;
+}
+.lead {
+    text-align: center;
+    font-weight: bold;
+}
