@@ -1,4 +1,4 @@
-
+const path = require("path");
 var selectedAnswers = [];
 var questions = document.getElementById("questions");
 
@@ -8,13 +8,6 @@ function questionSelected ()  {
 }
 
 }
-
-
-
-
-
-
-
 
 
 const people = [
@@ -36,3 +29,5 @@ const people = [
       ]
   },
 ]
+
+module.exports = people;
