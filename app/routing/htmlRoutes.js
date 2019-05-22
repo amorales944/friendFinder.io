@@ -16,8 +16,5 @@ app.use("/home", function(req, res) {
   });
 }
 
-
-
-app.listen(3000);
-
-module.exports = htmlRoutes;
+// app.listen(3000);
+// module.exports = htmlRoutes.js;

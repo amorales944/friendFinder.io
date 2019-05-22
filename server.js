@@ -9,16 +9,17 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
+require("./app/routing/htmlRoutes")(app);
 
-app.get("/home", function(req, res) {
-    // res.send("Welcome to friend finder home")
-    res.sendFile(path.join(__dirname, "app/public/home.html"));
-  });
+// app.get("/home", function(req, res) {
+//     // res.send("Welcome to friend finder home")
+//     res.sendFile(path.join(__dirname, "app/public/home.html"));
+//   });
   
-  app.get("/survey", function(req, res) {
-    // res.send("Welcome to friend finder survey")
-    res.sendFile(path.join(__dirname, "app/public/survey.html"));
-  });
+//   app.get("/survey", function(req, res) {
+//     // res.send("Welcome to friend finder survey")
+//     res.sendFile(path.join(__dirname, "app/public/survey.html"));
+//   });
 
   app.get("/app/data/friends", function(req, res) {
     return res.json(people);
