@@ -16,7 +16,7 @@
 
 <body>
     <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-        <a class="navbar-brand" href="#"></a><i class="fas fa-user-friends"></i> Friend Finder</a>
+        <a class="navbar-brand"><i class="fas fa-user-friends"></i> Friend Finder</a>
     </nav>
     <div class="container-fluid">
         <div class="container">
@@ -28,18 +28,18 @@
                 <div class="form-group">
                     <label for="surveyName">Name (Required)</label>
                     <input type="text" class="form-control" id="nameInput"
-                        placeholder="Enter Name here">
+                        placeholder="Enter Name here" required>
                 </div>
                 <div class="form-group">
                     <label for="surveyIMG">Link to Photo Image (Required)</label>
-                    <input type="url" class="form-control" id="photoInput" placeholder="add URL here">
+                    <input type="url" class="form-control" id="photoInput" placeholder="add URL here" required>
                 </div>
             </form>
             <hr>
 
             <h4>Question 1</h4>
             <p>Your mind is always buzzing with unexplored ideas and plans.</p>
-            <select id="questions">
+            <select id="questions1">
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -52,7 +52,7 @@
         
             <h4>Question 2</h4>
             <p>Generally speaking, you rely more on your experience than your imagination.</p>
-            <select id="questions">
+            <select id="questions2">
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -65,7 +65,7 @@
         
             <h4>Question 3</h4>
             <p>You find it easy to stay relaxed and focused even when there is some pressure.</p>
-            <select id="questions">
+            <select id="questions3">
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -78,7 +78,7 @@
             
             <h4>Question 4</h4>
             <p>You rarely do something just out of sheer curiosity.</p>
-            <select id="questions">
+            <select id="questions4">
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -91,7 +91,7 @@
             
             <h4>Question 5</h4>
             <p>People can rarely upset you.</p>
-            <select id="questions">
+            <select id="questions5">
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -104,7 +104,7 @@
             
             <h4>Question 6</h4>
             <p>It is often difficult for you to relate to other people’s feelings.</p>
-            <select id="questions">
+            <select id="questions6">
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -117,7 +117,7 @@
             
             <h4>Question 7</h4>
             <p>In a discussion, truth should be more important than people’s sensitivities.</p>
-            <select id="questions">
+            <select id="questions7">
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -130,7 +130,7 @@
             
             <h4>Question 8</h4>
             <p>You rarely get carried away by fantasies and ideas.</p>
-            <select id="questions">
+            <select id="questions8">
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -143,7 +143,7 @@
             
             <h4>Question 9</h4>
             <p>You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</p>
-            <select id="questions">
+            <select id="questions9">
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -156,7 +156,7 @@
             
             <h4>Question 10</h4>
             <p>You feel more energetic after spending time with a group of people.</p>
-            <select id="questions">
+            <select id="questions10">
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -167,7 +167,7 @@
             <br/>
             <br/>
             
-            <button type="button" class="btn btn-primary btn-lg btn-block">Submit</button>
+            <button type="button" class="btn btn-primary btn-lg btn-block" id="submit">Submit</button>
             
             <hr>
             <br/>
@@ -176,7 +176,35 @@
         </div>
     </div>
 
-    <!-- <script type="text/javascript" src="./assets/javascript/game.js"></script> -->
+    <script type="text/javascript">
+    
+    $("#submit").click(function(event){
+        event.preventDefault()
+        var userData = {
+            name: $("#nameInput").val(),
+            photo: $("#photoInput").val(),
+            scores: [
+                $("#questions1").val(),
+                $("#questions2").val(),
+                $("#questions3").val(),
+                $("#questions4").val(),
+                $("#questions5").val(),
+                $("#questions6").val(),
+                $("#questions7").val(),
+                $("#questions8").val(),
+                $("#questions9").val(),
+                $("#questions10").val(),
+            ]
+        }
+        console.log(userData);
+        $.post("/surveyPost", userData, function(data){
+            console.log(data);
+        })
+});
+    
+    
+    </script>
 </body>
+
 
 </html>

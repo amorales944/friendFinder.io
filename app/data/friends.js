@@ -1,7 +1,4 @@
-const path = require("path");
 var selectedAnswers = [];
-var questions = document.getElementById("questions");
-
 function questionSelected ()  {
   for (var i = 0; i < selectedAnswers.length; i++) {     // parsing with array.length
     console.log(selectedAnswers[i]);
