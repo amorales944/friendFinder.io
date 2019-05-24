@@ -1,6 +1,6 @@
 var selectedAnswers = [];
 function questionSelected ()  {
-  for (var i = 0; i < selectedAnswers.length; i++) {     // parsing with array.length
+  for (let i = 0; i < selectedAnswers.length; i++) {     // parsing with array.length
     console.log(selectedAnswers[i]);
 }
 }
